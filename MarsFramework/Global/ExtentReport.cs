@@ -43,7 +43,6 @@ namespace MarsFramework.Global
             .AddSystemInfo("Username", "Maria Sagayaraj");
 
             //Adding config.xml file
-            //Get the config.xml file from http://extentreports.com
             extent.LoadConfig(ReportXmlPath);
         }
 
@@ -101,7 +100,6 @@ namespace MarsFramework.Global
         //OneTimeTearDown
         public static void EndReport()
         {
-
             //End Report
             extent.Flush();
             extent.Close();
