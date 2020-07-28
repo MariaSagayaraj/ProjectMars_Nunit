@@ -34,7 +34,6 @@ namespace MarsFramework.Global
                     GlobalDefinitions.driver.Manage().Window.Maximize();
 
                     break;
-
             }
         }
 
@@ -100,15 +99,11 @@ namespace MarsFramework.Global
                                    where colData.colName == columnName && colData.rowNumber == rowNumber
                                    select colData.colValue).SingleOrDefault();
 
-                    //var datas = dataCol.Where(x => x.colName == columnName && x.rowNumber == rowNumber).SingleOrDefault().colValue;
-
-
                     return data.ToString();
                 }
 
                 catch (Exception e)
                 {
-                    //Added by Kumar
                     Console.WriteLine("Exception occurred in ExcelLib Class ReadData Method!" + Environment.NewLine + e.Message.ToString());
                     return null;
                 }
