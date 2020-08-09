@@ -4,6 +4,7 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
 using RelevantCodes.ExtentReports;
 using System;
@@ -36,16 +37,6 @@ namespace MarsFramework.Global
                     break;
             }
         }
-
-        #region WaitforElement 
-
-        public static void wait(int time)
-        {
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(time);
-        }
-
-        #endregion
-
 
         #region Excel 
         public class ExcelLib

@@ -1,8 +1,10 @@
 ﻿using MarsFramework.Config;
 using MarsFramework.Pages;
 using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Support.PageObjects;
 using RelevantCodes.ExtentReports;
 using System;
 using System.IO;
@@ -10,15 +12,13 @@ using static MarsFramework.Global.GlobalDefinitions;
 
 namespace MarsFramework.Global
 { 
-   public class Base
+   public class Base 
    {
         public static int Browser = Int32.Parse(MarsResource.Browser);
         public static string path = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\.."));
         public static string ScreenshotPath = path + "\\" + MarsResource.ScreenShotPath;
         public static string ExcelPath = path + "\\" + MarsResource.ExcelPath;
         public string BaseUrl = "http://192.168.99.100:5000/";
-
-
 
         #region setup and tear down
         [SetUp]
@@ -27,13 +27,15 @@ namespace MarsFramework.Global
             //initialize browser
             InitializeBrowser(Browser);
             driver.Navigate().GoToUrl(BaseUrl);
-            
+
+
             //go to sign in or signup
             if (MarsResource.IsLogin == "true")
             {
                 SignIn loginobj = new SignIn();
-                
+
                 loginobj.LoginSteps();
+                //Assert.That(ShareSkillButton.Displayed);
             }
             else
             {

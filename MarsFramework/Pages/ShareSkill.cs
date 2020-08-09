@@ -37,7 +37,8 @@ namespace MarsFramework.Pages
         private IWebElement SubCategoryDropDown { get; set; }
 
         //Enter Tag names in textbox
-        [FindsBy(How = How.XPath, Using = "//body/div/div/div[@id='service-listing-section']/div[contains(@class,'ui container')]/div[contains(@class,'listing')]/form[contains(@class,'ui form')]/div[contains(@class,'tooltip-target ui grid')]/div[contains(@class,'twelve wide column')]/div[contains(@class,'')]/div[contains(@class,'ReactTags__tags')]/div[contains(@class,'ReactTags__selected')]/div[contains(@class,'ReactTags__tagInput')]/input[1]")]
+        
+        [FindsBy(How = How.ClassName, Using = "ReactTags__tagInputField")]
         private IWebElement Tags { get; set; }
 
         //one-off service type
@@ -104,10 +105,10 @@ namespace MarsFramework.Pages
         //enter share skill form
         internal void EnterShareSkill()
         {
-            //enter Title
+            //enter the Title in text box
             Title.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Title"));
 
-            //enter Description
+            //enter the Description in text box
             Description.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Description"));
 
             //enter Category
@@ -126,10 +127,10 @@ namespace MarsFramework.Pages
             //select location type
             SelectLocationType();
 
-            //select start date
+            //select the start date
             StartDateDropDown.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Startdate"));
 
-            //select End date
+            //select the End date
             EndDateDropDown.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Enddate"));
 
             //select day and time
@@ -139,7 +140,7 @@ namespace MarsFramework.Pages
             SelectSkillTrade();
 
             //upload file using autoit
-            fileupload();
+            Uploadfile();
 
             //select active/hidden
             SelectActive();
@@ -147,10 +148,9 @@ namespace MarsFramework.Pages
             //click save
             Save.Click();
 
-           
         }
 
-        internal void fileupload()
+        internal void Uploadfile()
         {
             WorkSample.Click();
             AutoItX3 autoIt = new AutoItX3();
@@ -163,12 +163,11 @@ namespace MarsFramework.Pages
             //Workaround: Copy WorkSample.txt file from root folder to Desktop
             //autoIt.Send("C:\\Users\\OEM\\Desktop\\WorkSample.txt");
 
-            autoIt.Sleep(1000);
             autoIt.Send("{ENTER}");
         }
         internal void SelectServiceType()
         {
-            //enter service type
+            //entering the service type
             if (GlobalDefinitions.ExcelLib.ReadData(2, "ServiceType") == "One-off service")
             {
                 OneOff.Click();
@@ -181,7 +180,7 @@ namespace MarsFramework.Pages
 
         internal void SelectLocationType()
         {
-            //enter service type
+            //entering the service type
             if (GlobalDefinitions.ExcelLib.ReadData(2, "LocationType") == "On-site")
             {
                 Onsite.Click();

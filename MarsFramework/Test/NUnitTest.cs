@@ -9,7 +9,7 @@ namespace MarsFramework
     {
         [TestFixture]
         [Category("Listing")]
-        class User : Global.Base
+        class User : Base
         {
 
             [Test, Order(1)]
@@ -69,6 +69,7 @@ namespace MarsFramework
                 ManageListings manageListings = new ManageListings();
                 //delete listing
                 manageListings.DeleteListing();
+
             }
         }
     }

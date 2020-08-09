@@ -14,7 +14,6 @@ using System.IO;
 
 namespace MarsFramework.Global
 {
-    [TestFixture]
     public static class ExtentReport
     {
         //Instance of extent reports
@@ -107,9 +106,6 @@ namespace MarsFramework.Global
         }
 
     }
-
-
-       
 
     
 }

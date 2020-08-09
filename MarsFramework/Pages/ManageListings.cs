@@ -17,7 +17,7 @@ namespace MarsFramework.Pages
     {
         public ManageListings()
         {
-            //Populate the Excel Sheet
+          //Populate the Excel Sheet
           // GlobalDefinitions.ExcelLib.PopulateInCollection(Base.ExcelPath, "ManageListings");
             PageFactory.InitElements(Global.GlobalDefinitions.driver, this);
         }
@@ -70,7 +70,6 @@ namespace MarsFramework.Pages
             //confirm delete
             yesButton.Click();
 
-            GlobalDefinitions.wait(300);
             //text of popup
             Console.WriteLine(Popup.Text);
            

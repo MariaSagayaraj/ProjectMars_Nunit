@@ -1,16 +1,17 @@
 ﻿using MarsFramework.Global;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.PageObjects;
+
 
 namespace MarsFramework.Pages
 {
-   public class SignIn
+   public class SignIn : Global.WaitHelpers
     {
        
         public SignIn()
         {
-
             //Populate the excel data
             GlobalDefinitions.ExcelLib.PopulateInCollection(Base.ExcelPath, "SignIn");
             username = GlobalDefinitions.ExcelLib.ReadData(2, "Username");
@@ -21,6 +22,7 @@ namespace MarsFramework.Pages
 
         private string username;
         private string password;
+        private IWebDriver driver;
 
         #region  Initialize Web Elements 
         //Finding the Sign Link
@@ -56,8 +58,6 @@ namespace MarsFramework.Pages
             Password.SendKeys(password);
             //click login button
             LoginButton.Click();
-            GlobalDefinitions.wait(30);
-            Assert.That(ShareSkillButton.Displayed);
         }
     }
 }
